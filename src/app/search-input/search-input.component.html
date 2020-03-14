@@ -1,0 +1,14 @@
+<label class="search-input-wrapper">
+  <i class="material-icons search-icon" (click)="toggleSearchInput()">
+    search
+  </i>
+  <input [ngClass]="{ 'toggled':isToggled }"
+         (input)="filterFilled(condition)"
+         [(ngModel)]="condition"
+         class="search-input"
+         type="text"
+         #searchInput/>
+  <i [ngClass]="{ 'toggled':isToggled }" class="material-icons cross-icon" (click)="clearFilter()">
+    clear
+  </i>
+</label>

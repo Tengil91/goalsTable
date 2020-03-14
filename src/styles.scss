@@ -1,4 +1,122 @@
 /* You can add global styles to this file, and also import other style files */
 
+* {
+  box-sizing: border-box;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.w-100 {
+  width: 100%;
+}
+
+.min-h-100 {
+  min-height: 100%;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
+}
+
+.m-20 {
+  margin: 20px;
+}
+
+.p-5 {
+  padding: 5px;
+}
+
+.p-10 {
+  padding: 10px;
+}
+
+.p-20 {
+  padding: 20px;
+}
+
+.py-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.px-24 {
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.px-1 {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.secondary-color {
+  color: #6CC3FF;
+}
+
+.bc-white {
+  background-color: #fff;
+}
+
+.outer-bc {
+  background-color: #eee;
+}
+
+.mat-stroked-button:not([disabled]) {
+  border-color: currentColor;
+}
+
+.search-box > * {
+  background-color: transparent;
+  border: none;
+}
+
+.search-box input {
+  transform: translate(22px, 0);
+}
+
+.search-box input:focus + i {
+  display: none;
+}
+
+.search-box input:focus {
+  transform: translate(0, 0);
+}
+
+.invisible-button {
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  /* outline: none; */
+  background-color: transparent;
+}
+
+.fs-1-2-em {
+  font-size: 1.2em;
+}
+
+.search-input-wrapper {
+  .search-input {
+    width: 0;
+  }
+
+  .search-input.toggled {
+    width: 160px;
+  }
+}
