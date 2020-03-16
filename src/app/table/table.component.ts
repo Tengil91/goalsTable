@@ -2,13 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-
-export interface GoalData {
-  title: string;
-  url: string;
-  prerequisticUrl: string;
-  fullfillments: number;
-}
+import { GoalsService } from '../goals.service';
+import { IGoals, IGoal } from "../igoals";
+import { SelectionModel } from "@angular/cdk/collections";
 
 @Component({
   selector: 'app-table',
@@ -17,100 +13,45 @@ export interface GoalData {
 })
 export class TableComponent implements OnInit {
   columnTitles = [
+    "select",
     "title",
     "url",
     "prerequisiteUrl",
-    "fullfillments"
+    "fullfillments",
+    "ellipsis"
   ];
-  columnTitles2 = [
-    "Title2",
-    "Url2",
-    "Prerequisite Url2",
-    "Fullfillments2"
-  ];
-  sortedData = [];
-  goalDataSource: MatTableDataSource<GoalData>;
+  rows = [];
+  goalDataSource: MatTableDataSource<IGoal>;
+  selection = new SelectionModel<IGoal>(true, []);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor() {
-    const rows = [
-      {
-        title: "My first awsome goal",
-        url: "/contact-us",
-        prerequisticUrl: null,
-        fullfillments: 320
-      },
-      {
-        title: "Sombody elso",
-        url: "/product-1",
-        prerequisticUrl: "/about-product-1",
-        fullfillments: 160
-      },
-      {
-        title: "Important goal",
-        url: null,
-        prerequisticUrl: null,
-        fullfillments: 123
-      },
-      {
-        title: "Important goal",
-        url: null,
-        prerequisticUrl: null,
-        fullfillments: 123
-      },
-      {
-        title: "Important goal",
-        url: null,
-        prerequisticUrl: null,
-        fullfillments: 123
-      },
-      {
-        title: "Important goal",
-        url: null,
-        prerequisticUrl: null,
-        fullfillments: 123
-      },
-      {
-        title: "Important goal",
-        url: null,
-        prerequisticUrl: null,
-        fullfillments: 123
-      },
-      {
-        title: "Important goal",
-        url: null,
-        prerequisticUrl: null,
-        fullfillments: 123
-      },
-      {
-        title: "Important goal",
-        url: null,
-        prerequisticUrl: null,
-        fullfillments: 123
-      },
-      {
-        title: "Important goal",
-        url: null,
-        prerequisticUrl: null,
-        fullfillments: 123
-      },
-      {
-        title: "Important goal",
-        url: null,
-        prerequisticUrl: null,
-        fullfillments: 123
-      },
-    ];
-    this.sortedData = rows;
-    
-    this.goalDataSource = new MatTableDataSource(rows);
-  }
+  constructor(private goalsService: GoalsService) { }
 
   ngOnInit() {
+    this.goalsService.getGoals().subscribe(data => {
+      console.log(data);
+      this.rows = data.goals;
+    });
+    this.goalDataSource = new MatTableDataSource(this.rows);
     this.goalDataSource.paginator = this.paginator;
     this.goalDataSource.sort = this.sort;
+  }
+
+
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.goalDataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+      this.selection.clear() :
+      this.goalDataSource.data.forEach(row => this.selection.select(row));
   }
 
   applyFilter(event: Event) {

@@ -16,6 +16,7 @@ import { MatPaginatorModule } from "@angular/material/paginator";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
+import { MatCheckboxModule } from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -35,7 +36,9 @@ import { MatButtonModule } from "@angular/material/button";
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatSortModule
+    MatSortModule,
+    MatCheckboxModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
