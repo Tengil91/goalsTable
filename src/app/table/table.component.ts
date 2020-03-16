@@ -62,4 +62,8 @@ export class TableComponent implements OnInit {
       this.goalDataSource.paginator.firstPage();
     }
   }
+
+  openGoalsDialog(){
+    console.log("här börjar en ny branch")
+  }
 }
