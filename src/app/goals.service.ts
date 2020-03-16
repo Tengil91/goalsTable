@@ -11,67 +11,67 @@ export class GoalsService {
     {
       title: "My first awsome goal",
       url: "/contact-us",
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 320
     },
     {
       title: "Sombody elso",
       url: "/product-1",
-      prerequisticUrl: "/about-product-1",
+      prerequisiteUrl: "/about-product-1",
       fullfillments: 160
     },
     {
       title: "Important goal",
       url: null,
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 123
     },
     {
       title: "Important goal",
       url: null,
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 123
     },
     {
       title: "Important goal",
       url: null,
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 123
     },
     {
       title: "Important goal",
       url: null,
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 123
     },
     {
       title: "Important goal",
       url: null,
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 123
     },
     {
       title: "Important goal",
       url: null,
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 123
     },
     {
       title: "Important goal",
       url: null,
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 123
     },
     {
       title: "Important goal",
       url: null,
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 123
     },
     {
       title: "Important goal",
       url: null,
-      prerequisticUrl: null,
+      prerequisiteUrl: null,
       fullfillments: 123
     },
   ];
@@ -79,9 +79,18 @@ export class GoalsService {
 
   getGoals(){
     return new Observable<IGoals>(observer => {
-      let rows = this.rows
-      observer.next({goals: rows})
-    })
-    /* return this.rows; */
+      let rows = this.rows;
+      observer.next({goals: rows});
+    });
   }
+
+  addGoal(goal){
+    this.rows.push(goal);
+    console.log(this.rows)
+    return new Observable<IGoals>(observer => {
+      let rows = this.rows;
+      observer.next({goals: rows});
+    });
+  }
+
 }

@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { GoalsService } from '../goals.service';
 import { IGoals, IGoal } from "../igoals";
 import { SelectionModel } from "@angular/cdk/collections";
+import { MatDialog } from '@angular/material/dialog';
+import { CreateGoalFormComponent } from '../create-goal-form/create-goal-form.component';
 
 @Component({
   selector: 'app-table',
@@ -27,18 +29,19 @@ export class TableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private goalsService: GoalsService) { }
+  constructor(
+    private goalsService: GoalsService,
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit() {
     this.goalsService.getGoals().subscribe(data => {
       console.log(data);
-      this.rows = data.goals;
+      if(data.goals){
+        this.updateRows(data.goals);
+      }
     });
-    this.goalDataSource = new MatTableDataSource(this.rows);
-    this.goalDataSource.paginator = this.paginator;
-    this.goalDataSource.sort = this.sort;
   }
-
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -64,6 +67,33 @@ export class TableComponent implements OnInit {
   }
 
   openGoalsDialog(){
-    console.log("här börjar en ny branch")
+    console.log("här börjar en ny branch");
+    const dialogRef = this.dialog.open(CreateGoalFormComponent, {
+      width: '500px',
+      data: {
+        title: "",
+        url: "",
+        prerequisiteUrl: "",
+        fullfillments: 0
+      }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result)
+      if(result && result.title){
+        this.goalsService.addGoal(result).subscribe(data => {
+          if(data.goals){
+            this.updateRows(data.goals);
+          }
+        });
+      }
+      console.log('The dialog was closed');
+    });
+  }
+
+  updateRows(rows){
+    this.rows = rows;
+    this.goalDataSource = new MatTableDataSource(this.rows);
+    this.goalDataSource.paginator = this.paginator;
+    this.goalDataSource.sort = this.sort;
   }
 }

@@ -1,8 +1,8 @@
 export interface IGoal {
   title: string,
-  url: string,
-  prerequisticUrl: string,
-  fullfillments: number
+  url?: string,
+  prerequisiteUrl?: string,
+  fullfillments?: number
 }
 
 export interface IGoals {

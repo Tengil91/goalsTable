@@ -28,7 +28,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .ml-auto {
-  margin-left: auto;
+  margin-left: auto!important;
 }
 
 .mb-10 {
@@ -109,6 +109,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .fs-1-2-em {
   font-size: 1.2em;
+}
+
+.create-goal-form input {
+  border-bottom: solid 1px transparent;
+}
+
+.create-goal-form input.ng-invalid.ng-touched {
+  border-bottom: red solid 1px;
+}
+
+.create-goal-form fieldset {
+  border-radius: 5px;
+}
+
+.mat-dialog-title.create-goal-form-title {
+  background-color: #3BB0FF;
+  color: #fff;
+  margin: -24px -24px 12px -24px;
+  padding: 12px 24px;
 }
 
 .search-input-wrapper {
