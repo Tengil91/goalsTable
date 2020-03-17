@@ -3,7 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { GoalsService } from '../goals.service';
-import { IGoals, IGoal } from "../igoals";
+import { IGoal } from "../igoals";
 import { SelectionModel } from "@angular/cdk/collections";
 import { MatDialog } from '@angular/material/dialog';
 import { CreateGoalFormComponent } from '../create-goal-form/create-goal-form.component';
@@ -97,5 +97,26 @@ export class TableComponent implements OnInit {
     this.goalDataSource = new MatTableDataSource(this.rows);
     this.goalDataSource.paginator = this.paginator;
     this.goalDataSource.sort = this.sort;
+    this.selection.clear();
+  }
+
+  deleteRow(id){
+    console.log(id);
+    this.goalsService.removeGoal(id).subscribe(data => {
+      if(data.goals){
+        this.updateRows(data.goals);
+      }
+    })
+  }
+
+  deleteSelectedRows(){
+    const ids = this.selection.selected.map(row => row.id);
+    console.log(this.selection.selected);
+    this.goalsService.removeGoals(ids).subscribe(data => {
+      console.log(data);
+      if(data.goals || Object.values(data).length === 0){
+        this.updateRows(data.goals);
+      }
+    })
   }
 }

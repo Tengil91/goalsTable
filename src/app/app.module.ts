@@ -9,6 +9,7 @@ import { GoalsTableComponent } from './goals-table/goals-table.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { TableComponent } from './table/table.component';
 import { MatSortModule } from '@angular/material/sort';
+import { CreateGoalFormComponent } from './create-goal-form/create-goal-form.component';
 
 
 import { MatTableModule } from '@angular/material/table';
@@ -18,7 +19,11 @@ import { MatInputModule } from "@angular/material/input";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatDialogModule } from '@angular/material/dialog';
-import { CreateGoalFormComponent } from './create-goal-form/create-goal-form.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+
+
 
 
 
@@ -43,8 +48,10 @@ import { CreateGoalFormComponent } from './create-goal-form/create-goal-form.com
     MatButtonModule,
     MatSortModule,
     MatCheckboxModule,
-    MatDialogModule
-    
+    MatDialogModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCardModule
   ],
   entryComponents: [
     CreateGoalFormComponent

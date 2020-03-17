@@ -1,6 +1,7 @@
 export interface IGoal {
+  id?: number,
   title: string,
-  url?: string,
+  url: string,
   prerequisiteUrl?: string,
   fullfillments?: number
 }
