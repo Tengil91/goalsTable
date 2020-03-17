@@ -14,7 +14,7 @@ $my-primary: mat-palette($my-blue-palette, 100);
 $my-accent:  mat-palette($my-lightblue-palette, 100);
 
 // The warn palette is optional (defaults to red).
-$my-warn:    mat-palette($mat-red);
+$my-warn: mat-palette($my-red-palette, 100);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $my-theme: mat-light-theme($my-primary, $my-accent, $my-warn);

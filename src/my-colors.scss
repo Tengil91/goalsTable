@@ -1,9 +1,15 @@
 $my-lightblue: #3BB0FF;
 $my-blue: #01579B;
-$my-red: #f44336;
+$my-red: #B92D00;
 
 $my-lightblue-palette: (
   100: $my-lightblue,
+  contrast: (
+    100: #fff
+  )
+);
+$my-red-palette: (
+  100: $my-red,
   contrast: (
     100: #fff
   )
