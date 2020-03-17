@@ -1,20 +1,27 @@
   
-<div class="mat-elevation-z4 bc-white py-10">
-  <div class="px-24">
+<div class="mat-elevation-z4 bc-white">
+  <div class="px-24 py-10" *ngIf="!selection.hasValue()">
     <div class="d-flex">
       <button mat-stroked-button color="accent" (click)="openGoalsDialog()">+ CREATE GOAL</button>
       <app-search-input class="ml-auto" (filter)="applyFilter($event)"></app-search-input>
     </div>
+  </div>
 
-    <mat-card *ngIf="selection.hasValue()">
-      <div class="d-flex">
-        <span>{{selection.selected.length}} row<span *ngIf="selection.selected.length > 1">s</span> selected</span>
+  <mat-card *ngIf="selection.hasValue()" class="p-0 box-shadow-none">
+    <app-section-header
+      [header]="''"
+      [color]="'#D7EFFF'"
+      [subHeader]="null"
+    >
+      <div class="d-flex align-center">
+        <span>{{selection.selected.length}} item<span *ngIf="selection.selected.length > 1">s</span> selected</span>
         <button class="ml-auto" mat-stroked-button color="warn" (click)="deleteSelectedRows()">
-          Delete selected goals
+          <mat-icon>delete</mat-icon>
+          <span>DELETE GOALS</span>
         </button>
       </div>
-    </mat-card>
-  </div>
+    </app-section-header>
+  </mat-card>
 
   <table class="w-100" mat-table [dataSource]="goalDataSource" matSort >
 
@@ -61,7 +68,8 @@
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="deleteRow(row.id)">
-            Delete
+            <span class="text-warn">Delete Goal</span>
+            <mat-icon color="warn">delete</mat-icon>
           </button>
         </mat-menu>
       </td>

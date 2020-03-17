@@ -1,0 +1,9 @@
+<mat-card-title class="header-panel" [ngStyle]="{ 'background-color': color, 'color': fontColor }" fxLayout="row" fxLayoutAlign="space-between center">
+  <span class="text-wrap" [innerHTML]="header"></span>
+  <span class="sub" *ngIf="subHeader">
+    {{ subHeader }}
+  </span>
+  <ng-content>
+
+  </ng-content>
+</mat-card-title>

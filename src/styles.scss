@@ -46,6 +46,14 @@ body {
   margin: 20px;
 }
 
+.p-0 {
+  padding: 0!important;
+}
+
+.box-shadow-none {
+  box-shadow: none!important;
+}
+
 .p-5 {
   padding: 5px;
 }
@@ -75,6 +83,10 @@ body {
 
 .bc-white {
   background-color: #fff;
+}
+
+.text-warn {
+  color: $my-red;
 }
 
 .outer-bc {

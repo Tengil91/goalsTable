@@ -10,6 +10,7 @@ import { SearchInputComponent } from './search-input/search-input.component';
 import { TableComponent } from './table/table.component';
 import { MatSortModule } from '@angular/material/sort';
 import { CreateGoalFormComponent } from './create-goal-form/create-goal-form.component';
+import { SectionHeaderComponent } from "./section-header/section-header.component";
 
 
 import { MatTableModule } from '@angular/material/table';
@@ -33,7 +34,8 @@ import { MatCardModule } from '@angular/material/card';
     GoalsTableComponent,
     SearchInputComponent,
     TableComponent,
-    CreateGoalFormComponent
+    CreateGoalFormComponent,
+    SectionHeaderComponent
   ],
   imports: [
     BrowserModule,
