@@ -7,6 +7,7 @@ import { IGoals, IGoal } from "../igoals";
 import { SelectionModel } from "@angular/cdk/collections";
 import { MatDialog } from '@angular/material/dialog';
 import { CreateGoalFormComponent } from '../create-goal-form/create-goal-form.component';
+import { ISearchValue } from '../i-search-value';
 
 @Component({
   selector: 'app-table',
@@ -57,8 +58,9 @@ export class TableComponent implements OnInit {
       this.goalDataSource.data.forEach(row => this.selection.select(row));
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
+  applyFilter(event: ISearchValue) {
+    console.log(event)
+    const filterValue = event.condition;
     this.goalDataSource.filter = filterValue.trim().toLowerCase();
 
     if (this.goalDataSource.paginator) {

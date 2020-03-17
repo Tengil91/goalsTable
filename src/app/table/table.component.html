@@ -1,8 +1,8 @@
   
 <div class="mat-elevation-z4 bc-white py-10">
   <div class="d-flex px-24">
-    <button mat-stroked-button color="primary" (click)="openGoalsDialog()">+ CREATE GOAL</button>
-    <app-search-input class="ml-auto" (keyup)="applyFilter($event)"></app-search-input>
+    <button mat-stroked-button color="accent" (click)="openGoalsDialog()">+ CREATE GOAL</button>
+    <app-search-input class="ml-auto" (filter)="applyFilter($event)"></app-search-input>
   </div>
 
   <table class="w-100" mat-table [dataSource]="goalDataSource" matSort >

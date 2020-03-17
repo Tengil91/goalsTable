@@ -1,11 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import "my-colors.scss";
+
 * {
   box-sizing: border-box;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .w-100 {
   width: 100%;
@@ -66,10 +73,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   padding-right: 1px;
 }
 
-.secondary-color {
-  color: #6CC3FF;
-}
-
 .bc-white {
   background-color: #fff;
 }
@@ -116,7 +119,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .create-goal-form input.ng-invalid.ng-touched {
-  border-bottom: red solid 1px;
+  border-bottom: $my-red solid 1px;
 }
 
 .create-goal-form fieldset {
@@ -124,7 +127,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .mat-dialog-title.create-goal-form-title {
-  background-color: #3BB0FF;
+  background-color: $my-blue;
   color: #fff;
   margin: -24px -24px 12px -24px;
   padding: 12px 24px;
