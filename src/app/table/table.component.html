@@ -14,9 +14,9 @@
       [subHeader]="null"
     >
       <div class="d-flex align-center">
-        <span>{{selection.selected.length}} item<span *ngIf="selection.selected.length > 1">s</span> selected</span>
+        <span class="fw-normal">{{selection.selected.length}} item<span *ngIf="selection.selected.length > 1">s</span> selected</span>
         <button class="ml-auto" mat-stroked-button color="warn" (click)="deleteSelectedRows()">
-          <mat-icon>delete</mat-icon>
+          <mat-icon class="mr-12">delete</mat-icon>
           <span>DELETE GOALS</span>
         </button>
       </div>
@@ -68,8 +68,8 @@
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item (click)="deleteRow(row.id)">
+            <mat-icon color="warn" class="mr-12">delete</mat-icon>
             <span class="text-warn">DELETE GOAL</span>
-            <mat-icon color="warn">delete</mat-icon>
           </button>
         </mat-menu>
       </td>
