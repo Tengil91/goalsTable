@@ -1,1 +1,11 @@
-<app-goals-table></app-goals-table>
+<nav>
+  <a routerLink="goals">Goals</a>
+  <a routerLink="campaigns">Campaigns</a>
+  <a routerLink="examples/expanding-table">Expanding table</a>
+</nav>
+
+<div class="outer-bc p-10 goals-table min-h-100">
+  <div class="m-20">
+    <router-outlet></router-outlet>
+  </div>
+</div>

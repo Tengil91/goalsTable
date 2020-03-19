@@ -2,12 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { GoalsService } from '../goals.service';
-import { IGoal } from "../igoals";
+import { GoalsService } from '../services/goals.service';
+import { IGoal } from "../interfaces/igoals";
 import { SelectionModel } from "@angular/cdk/collections";
 import { MatDialog } from '@angular/material/dialog';
 import { CreateGoalFormComponent } from '../create-goal-form/create-goal-form.component';
-import { ISearchValue } from '../i-search-value';
+import { ISearchValue } from '../interfaces/i-search-value';
 
 @Component({
   selector: 'app-table',

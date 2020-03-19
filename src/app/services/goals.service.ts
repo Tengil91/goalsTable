@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IGoals } from './igoals';
+import { IGoals } from '../interfaces/igoals';
 
 @Injectable({
   providedIn: 'root'

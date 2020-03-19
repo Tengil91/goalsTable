@@ -11,7 +11,7 @@ import { TableComponent } from './table/table.component';
 import { MatSortModule } from '@angular/material/sort';
 import { CreateGoalFormComponent } from './create-goal-form/create-goal-form.component';
 import { SectionHeaderComponent } from "./section-header/section-header.component";
-
+import { ExpandableTableExampleComponent } from './expandable-table-example/expandable-table-example.component';
 
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from "@angular/material/paginator";
@@ -23,7 +23,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
-
+import { CampaignPageComponent } from './campaign-page/campaign-page.component';
+import { CampaignsTableComponent } from './campaigns-table/campaigns-table.component';
+import { CampaignsGridComponent } from './campaigns-grid/campaigns-grid.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 
@@ -35,7 +39,11 @@ import { MatCardModule } from '@angular/material/card';
     SearchInputComponent,
     TableComponent,
     CreateGoalFormComponent,
-    SectionHeaderComponent
+    SectionHeaderComponent,
+    CampaignPageComponent,
+    CampaignsTableComponent,
+    CampaignsGridComponent,
+    ExpandableTableExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +61,9 @@ import { MatCardModule } from '@angular/material/card';
     MatDialogModule,
     MatMenuModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonToggleModule,
+    MatChipsModule
   ],
   entryComponents: [
     CreateGoalFormComponent
