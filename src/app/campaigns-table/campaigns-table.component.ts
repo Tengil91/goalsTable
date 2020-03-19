@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { ICampaign } from '../interfaces/i-campaigns';
-import { SelectionModel } from '@angular/cdk/collections';
 import { MatSort } from '@angular/material/sort';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
@@ -21,7 +20,6 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 export class CampaignsTableComponent implements OnInit {
 
   columnTitles = [
-    "select",
     "title",
     "status",
     "views",
@@ -35,7 +33,6 @@ export class CampaignsTableComponent implements OnInit {
   ];
 
   campaignDataSource: MatTableDataSource<ICampaign>;
-  selection = new SelectionModel<ICampaign>(true, []);
   expandedElement: ICampaign | null;
 
   @ViewChild(MatSort) sort: MatSort;
@@ -55,21 +52,6 @@ export class CampaignsTableComponent implements OnInit {
   updateRows(campaigns){
     this.campaignDataSource = new MatTableDataSource(campaigns);
     this.campaignDataSource.sort = this.sort;
-    this.selection.clear();
-  }
-  
-  /** Whether the number of selected elements matches the total number of rows. */
-  isAllSelected() {
-    const numSelected = this.selection.selected.length;
-    const numRows = this.campaignDataSource.data.length;
-    return numSelected === numRows;
-  }
-
-  /** Selects all rows if they are not all selected; otherwise clear selection. */
-  masterToggle() {
-    this.isAllSelected() ?
-      this.selection.clear() :
-      this.campaignDataSource.data.forEach(row => this.selection.select(row));
   }
 
   expandContent(id){

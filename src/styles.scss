@@ -22,6 +22,10 @@ body {
   min-height: 100%;
 }
 
+.width-30 {
+  width: 30%;
+}
+
 .d-flex {
   display: flex;
 }
@@ -34,6 +38,10 @@ body {
   align-items: center;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .fw-400 {
   font-weight: 400;
 }
@@ -44,6 +52,10 @@ body {
 
 .ml-auto {
   margin-left: auto!important;
+}
+
+.m-auto {
+  margin: auto!important;
 }
 
 .mb-10 {

@@ -1,3 +1,13 @@
-<p>
-  campaigns-grid works!
-</p>
+<mat-card *ngFor="let campaign of activeCampaigns" class="campaign-grid-item">
+  {{campaign | json}}
+  <h2>{{campaign.title}}</h2>
+  <div>
+    <mat-chip>
+      {{campaign.status}}
+    </mat-chip>
+    <button mat-stroked-button>View</button>
+  </div>
+  <mat-chip-list>
+    <mat-chip *ngFor="let tag of campaign.tags">{{tag}}</mat-chip>
+  </mat-chip-list>
+</mat-card>

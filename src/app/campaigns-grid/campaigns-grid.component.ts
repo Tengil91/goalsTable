@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ICampaigns } from '../interfaces/i-campaigns';
 
 @Component({
   selector: 'app-campaigns-grid',
@@ -6,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./campaigns-grid.component.scss']
 })
 export class CampaignsGridComponent implements OnInit {
+  public activeCampaigns: Array<ICampaigns> = [];
 
+  @Input() set campaigns(campaigns){
+    this.activeCampaigns = campaigns;
+  }
   constructor() { }
 
   ngOnInit() {

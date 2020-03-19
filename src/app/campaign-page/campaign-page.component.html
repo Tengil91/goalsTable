@@ -7,10 +7,9 @@
     <mat-icon>view_module</mat-icon>
     <span *ngIf="currentView === 'grid'">Grid</span>
   </mat-button-toggle>
-  <mat-button-toggle value="list"
-                     (click)="setCurrentView('list')">
-    <span *ngIf="currentView === 'list'">Table</span>
+  <mat-button-toggle value="list" (click)="setCurrentView('list')">
     <mat-icon>view_list</mat-icon>
+    <span *ngIf="currentView === 'list'">Table</span>
   </mat-button-toggle>
 </mat-button-toggle-group>
 
@@ -20,8 +19,8 @@
 >
 </app-campaigns-table>
 
-<!-- <app-campaigns-grid
+<app-campaigns-grid
   *ngIf="currentView === 'grid'"
   [campaigns]="campaigns"
 >
-</app-campaigns-grid> -->
+</app-campaigns-grid>

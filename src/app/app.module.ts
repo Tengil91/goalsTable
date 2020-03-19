@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
 import { GoalsTableComponent } from './goals-table/goals-table.component';
 import { SearchInputComponent } from './search-input/search-input.component';
 import { TableComponent } from './table/table.component';
