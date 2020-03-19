@@ -1,18 +1,24 @@
 <h1 mat-dialog-title class="create-goal-form-title">Create a goal</h1>
 <form class="create-goal-form" (ngSubmit)="submitCreateGoalForm()" [formGroup]="createGoalFormData">
   <div mat-dialog-content>
-    <fieldset>
-      <legend>Goal name*</legend>
+    <mat-form-field appearance="outline" class="w-100" floatLabel="always">
+      <mat-label class="filter-header">
+        Goal name*
+      </mat-label>
       <input matInput formControlName="title" placeholder="Some new goal">
-    </fieldset>
-    <fieldset>
-      <legend>Url*</legend>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100" floatLabel="always">
+      <mat-label class="filter-header">
+        Url*
+      </mat-label>
       <input matInput formControlName="url" placeholder="/url-to-create-goal">
-    </fieldset>
-    <fieldset>
-      <legend>Prerequisite url</legend>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="w-100" floatLabel="always">
+      <mat-label class="filter-header">
+        Prerequisite url
+      </mat-label>
       <input matInput formControlName="prerequisiteUrl" placeholder="/prerequisite-url-to-create-goal">
-    </fieldset>
+    </mat-form-field>
   </div>
     <div mat-dialog-actions>
       <button type="button" mat-button (click)="onNoClick()" color="accent" class="ml-auto">CLOSE</button>
