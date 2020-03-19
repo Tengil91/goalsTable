@@ -1,0 +1,24 @@
+tr.detail-row {
+  height: 0;
+}
+
+tr.campaign-row:not(.campaign-expanded-row):hover {
+  background: whitesmoke;
+}
+
+.campaign-row td {
+  border-bottom: none;
+}
+
+.campaign-row-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.transition-1-s {
+  transition: all 1s;
+}
+
+.rotate-90-deg {
+  transform: rotate(90deg);
+}

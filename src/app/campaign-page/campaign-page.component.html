@@ -1,0 +1,27 @@
+<h2 class="mb-10 fw-400">Campaigns</h2>
+
+<mat-button-toggle-group name="listType" [value]="currentView">
+  <mat-button-toggle value="grid"
+                     [checked]="true"
+                     (click)="setCurrentView('grid')">
+    <mat-icon>view_module</mat-icon>
+    <span *ngIf="currentView === 'grid'">Grid</span>
+  </mat-button-toggle>
+  <mat-button-toggle value="list"
+                     (click)="setCurrentView('list')">
+    <span *ngIf="currentView === 'list'">Table</span>
+    <mat-icon>view_list</mat-icon>
+  </mat-button-toggle>
+</mat-button-toggle-group>
+
+<app-campaigns-table
+  *ngIf="currentView === 'list'"
+  [campaigns]="campaigns"
+>
+</app-campaigns-table>
+
+<!-- <app-campaigns-grid
+  *ngIf="currentView === 'grid'"
+  [campaigns]="campaigns"
+>
+</app-campaigns-grid> -->
